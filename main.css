@@ -237,7 +237,7 @@ header {
 .data {
     font-weight: 500;
     font-size: 1.4rem;
-    color: #999; 
+    color: #cecece; 
     margin-bottom: 0.5rem;
     margin-left: 2rem;
     display: block; /* Força a data para cima do título */
