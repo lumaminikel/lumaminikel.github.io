@@ -247,9 +247,9 @@ header {
 
 .data {
     font-weight: 500;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     color: var(--font-color); 
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     position: relative;
     z-index: 2; /* Garante que o texto da data não seja cortado */
 }
@@ -273,14 +273,14 @@ header {
 }
 
 .conteudo-experiencia h3 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     margin-top: 0;
     margin-bottom: 0.5rem;
     color: var(--font-color);
 }
 
 .conteudo-experiencia .cargo {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-secondary); /* Destaque Laranja */
     margin: 0 0 10px 0;
@@ -288,7 +288,7 @@ header {
 
 .conteudo-experiencia .descricao {
     line-height: 1.6;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     color: #cccccc;
 }
