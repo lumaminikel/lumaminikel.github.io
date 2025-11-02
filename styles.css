@@ -1,0 +1,615 @@
+/* =================================
+   1. RESET E VARIÁVEIS (DARK MODE)
+   ================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Cores do Purplefolio (Dark Mode) */
+    --color-primary: #a020f0; /* Roxo principal */
+    --color-secondary: #ff9100; /* Laranja de destaque */
+    --color-accent: #111111; /* Cinza Escuro para Header/Footer */
+    --background-color: #000000; /* Fundo Preto */
+    --font-color: #f1f1f1; /* Texto Branco/Claro */
+    --color-sutil-border: rgba(255, 255, 255, 0.1); /* Borda/linha sutil */
+    --color-card-background: rgba(255, 255, 255, 0.03); /* Fundo de cartão sutil */
+    
+    font-size: 62.5%;
+}
+
+.enfaseprimaria {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+.enfasesecundaria {
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 5rem;
+    line-height: 5.5rem;
+    font-weight: 700;
+    color: var(--font-color);
+}
+
+h2 {
+    color: var(--font-color); /* Títulos brancos */
+    font-size: 4.5rem;
+    font-weight: bolder;
+    line-height: 3rem;
+    margin-bottom: 3rem;
+    text-align: center; /* Centralizando títulos de seção */
+}
+
+
+
+/* Ajustes de margin para as seções */
+#about, #experience, #skills {
+    padding: 6rem 3rem;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o conteúdo da seção */
+}
+
+#skills ul {
+    list-style: none;
+}
+
+/* =================================
+   2. ESTILOS DE COMPONENTES (HEADER, BUTTON, FOOTER)
+   ================================= */
+
+button {
+    border: 0.1rem solid transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem; /* Ajuste para melhor clique */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+button.primary { 
+    background-color: var(--color-primary);
+    color: #fff;
+}
+button.outline {
+    background-color: transparent;
+    border: 0.1rem solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+button:hover {
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--font-color); /* Texto escuro ao passar o mouse */
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 4rem;
+    background-color: #ffffff; /* Fundo escuro */
+    box-shadow: var(--color-primary);
+    color: var(--color-primary);
+
+    & nav {
+        font-size: 2rem;
+        flex: 1;
+
+        & ul {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            cursor: pointer;
+
+            & li {
+                list-style: none;
+                font-weight: 500;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: var(--color-secondary);
+                }
+                &.active {
+                    color: var(--color-primary);
+                }
+            }
+        }
+    }
+  }
+/* =================================
+   3. SEÇÃO HERO
+   ================================= */
+
+#hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin: auto;
+    padding: 10rem;
+    align-items: center;
+    justify-items: end;
+    align-content: center;
+    justify-content: center;
+    max-width: 1200px;
+}
+
+#hero article {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    align-self: center;
+}
+
+
+#hero article > p {
+    font-size: 2rem;
+    line-height: 3rem;
+    align-content: center;
+    color: #cccccc;
+}
+
+#hero .frame {
+    align-items: center;
+    border: 0.5rem solid var(--color-primary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    width: 40rem;
+    height: 40rem;
+    min-width: 300px; /* Garante um tamanho mínimo em telas menores */
+}
+
+#hero .frame img {
+    width: 80%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    transform: scaleX(-1);
+}
+
+/* =================================
+   4. SEÇÃO ABOUT
+   ================================= */
+
+#about article {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+#about article p {
+    margin-bottom: 2rem;
+    line-height: 2.8rem;
+    color: #cccccc;
+}
+
+
+/* =================================
+   5. SEÇÃO EXPERIENCE (LINHA DO TEMPO - PURPLEFOLIO)
+   ================================= */
+
+.linha-do-tempo-container {
+    max-width: 100rem; 
+    margin: 0 auto;
+    position: relative;
+    padding-left: 2rem; /* Espaço para a linha vertical e ponto */
+}
+
+/* Linha Vertical */
+.linha-do-tempo-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0; /* Alinha a linha na borda esquerda */
+    bottom: 0;
+    width: 0.2rem; 
+    background-color: var(--color-sutil-border); 
+    z-index: 0;
+}
+
+.item-experiencia {
+    display: block; /* Cada item ocupa uma linha */
+    margin-bottom: 4rem; 
+    position: relative;
+    padding-left: 2rem; /* Espaço entre a linha e o texto */
+}
+
+/* Ajusta a Data (opcionalmente) */
+.data {
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: #cecece; 
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    display: block; /* Força a data para cima do título */
+}
+
+/* Ponto de marcação */
+.ponto-timeline {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    background-color: var(--color-primary); 
+    position: absolute;
+    left: -0.6rem; /* Meia largura para centralizar o ponto na linha vertical (left: 0) */
+    top: 3.5rem; /* Ajuste manual para alinhar com o h3 + data */
+    z-index: 1; 
+    box-shadow: 0 0 0 0.4rem var(--background-color); 
+}
+
+/* Ajusta a posição do ponto para se alinhar com o título/data */
+.item-experiencia:first-child .ponto-timeline {
+    top: 0.5rem; /* Mais alto para o primeiro item */
+}
+
+/* O conteúdo não precisa de Flexbox, pois está em bloco */
+.data-e-ponto {
+    width: 100%; /* Ocupa a largura total */
+    margin-right: 0;
+    align-items: flex-start; /* Alinha a data à esquerda */
+    position: relative;
+    
+}
+/* Alinhar o ponto com o texto */
+.ponto-timeline {
+    left: -0.6rem; 
+    top: 3.5rem; 
+}
+
+.conteudo-experiencia {
+    flex-grow: 1; 
+    padding-left: 2rem; /* 20px */
+}
+
+.conteudo-experiencia h3 {
+    font-size: 2.2rem; /* 22px */
+    margin-top: 0; /* AJUSTE DE ALINHAMENTO: Garante que o topo do h3 inicie no 0 */
+    margin-bottom: 0.5rem; /* 5px */
+    color: var(--font-color);
+}
+
+.conteudo-experiencia .cargo {
+    font-size: 1.6rem; /* 16px */
+    font-weight: 600;
+    color: var(--color-secondary); 
+    margin: 0 0 1rem 0; /* 10px */
+}
+
+.conteudo-experiencia .descricao {
+    line-height: 1.6;
+    font-size: 1.6rem; /* 16px */
+    margin-bottom: 1rem; /* 10px */
+    color: #cccccc;
+}
+
+/* === RESPONSIVIDADE EM REM (768px = 76.8rem) === */
+
+@media (max-width: 76.8rem) {
+    
+    .linha-do-tempo-container::before {
+        left: 2rem; /* 20px */
+    }
+
+    .item-experiencia {
+        padding-left: 3rem; /* 30px */
+        margin-bottom: 4rem; /* 40px */
+    }
+
+    .data {
+        position: relative;
+        left: 3rem; /* 30px */
+    }
+
+    .ponto-timeline {
+        left: -1.8rem; /* 18px */
+        right: auto;
+        top: 3.5rem; /* 35px - Ajustado para alinhar visualmente com o conteúdo no mobile */
+    }
+    
+    .conteudo-experiencia {
+        padding-left: 0; 
+    }
+}
+
+
+/* =================================
+   6. SEÇÃO SKILLS (GRID CARDS - PURPLEFOLIO)
+   ================================= */
+
+#skills article {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilizando cada Grupo de Skill (o Cartão) */
+.skillGroup {
+    border: 0.1rem solid var(--color-sutil-border); 
+    border-radius: 0.8rem;
+    padding: 2.5rem 2rem;
+    background-color: var(--color-card-background); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skillGroup:hover {
+    transform: translateY(-0.5rem);
+    box-shadow: 0 0 2rem rgba(160, 32, 240, 0.15); /* Sombra sutil com a cor primária */
+}
+
+.skillGroup .skillTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--color-secondary); 
+}
+
+#skills ul {
+    padding-left: 0;
+    margin: 0;
+}
+
+#skills ul li {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    color: #cccccc; 
+    position: relative;
+    padding-left: 2rem;
+}
+
+/* Criando o ponto de lista */
+#skills ul li::before {
+    content: '•'; 
+    color: var(--color-primary); 
+    font-weight: 700;
+    font-size: 1.8rem;
+    position: absolute;
+    left: 0;
+    top: -0.1rem;
+}
+
+
+/* =================================
+   7. RESPONSIVIDADE
+   ================================= */
+
+/* Tablets (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    #hero {
+        margin: 5rem 0;
+        grid-template-columns: 1fr; /* Hero em uma coluna */
+    }
+
+    #hero article {
+        order: 2; /* Coloca o texto abaixo da imagem */
+        padding: 0 2rem;
+    }
+
+    #hero .frame {
+        order: 1;
+        margin-bottom: 4rem;
+        width: 35rem;
+        height: 35rem;
+    }
+
+    /* Skills: 2 Colunas */
+    #skills article {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Experiência: Ajuste de Largura */
+    .linha-do-tempo-container {
+        padding: 0 20px;
+    }
+}
+
+/* Mobile (Max-width: 768px) */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 4rem;
+    }
+    
+    header {
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+    }
+
+    header nav ul {
+        gap: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    /* Hero */
+    #hero article .title {
+        font-size: 4.5rem; /* Aumentado de 4rem para 4.5rem no mobile */
+    line-height: 5rem;
+    }
+
+    /* Skills: 1 Coluna */
+    #skills article {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Experiência: Layout de coluna única */
+    .linha-do-tempo-container::before {
+        left: 2rem; /* Move a linha vertical para a lateral esquerda */
+        width: 0.2rem;
+    }
+
+    .item-experiencia {
+        flex-direction: column; 
+        margin-bottom: 4rem;
+        padding-left: 3rem; /* Espaço para a linha e o ponto */
+    }
+
+    .data-e-ponto {
+        width: 100%; 
+        margin-right: 0;
+        align-items: flex-start; /* Alinha a data à esquerda */
+        padding-top: 0;
+    }
+
+    .data {
+        margin-bottom: 0.5rem;
+        position: relative;
+        left: 3rem; /* Move a data para a direita do ponto/linha */
+    }
+
+    .ponto-timeline {
+        left: -1.8rem; /* Reposiciona o ponto para a linha lateral */
+        right: auto;
+        top: 3.5rem; /* Alinha com o início do conteúdo */
+    }
+    
+    .conteudo-experiencia {
+        padding-left: 0; 
+    }
+    
+    .conteudo-experiencia h3 {
+        margin-top: 0.5rem;
+    }
+}
+
+/* =================================
+   8. SEÇÃO PROJECTS (CARDS)
+   ================================= */
+
+#projects {
+    padding: 6rem 3rem;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+#projects h2 {
+    margin-bottom: 6rem;
+}
+
+.projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* Layout responsivo de cards */
+    gap: 3rem; /* Espaço entre os cards */
+}
+
+.projeto-card {
+    background-color: var(--color-card-background); /* Fundo sutil */
+    border: 0.1rem solid var(--color-sutil-border); /* Borda sutil */
+    border-radius: 1rem;
+    overflow: hidden; /* Garante que a imagem siga o border-radius */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projeto-card:hover {
+    transform: translateY(-0.8rem);
+    box-shadow: 0 1.5rem 3rem rgba(160, 32, 240, 0.2); /* Sombra mais pronunciada no hover */
+}
+
+.projeto-card img {
+    width: 100%;
+    height: 20rem; /* Altura fixa para as imagens dos cards */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    display: block;
+    border-bottom: 0.1rem solid var(--color-sutil-border); /* Separador da imagem para o conteúdo */
+}
+
+.card-conteudo {
+    padding: 2rem;
+    flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-conteudo h3 {
+    font-size: 2.2rem;
+    color: var(--font-color);
+    margin-bottom: 1rem;
+}
+
+.card-conteudo .tecnologias {
+    font-size: 1.3rem;
+    color: var(--color-secondary); /* Destaque laranja para tecnologias */
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.card-conteudo .descricao {
+    font-size: 1.5rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1; /* Permite que a descrição ocupe espaço extra antes dos botões */
+}
+
+.card-botoes {
+    display: flex;
+    gap: 1.5rem; /* Espaço entre os botões */
+    margin-top: auto; /* Empurra os botões para a parte inferior do card */
+}
+
+.card-botoes .primary,
+.card-botoes .outline {
+    width: 100%; /* Faz os botões ocuparem a largura total disponível */
+    text-align: center;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    text-decoration: none; /* Remove sublinhado padrão dos links */
+}
+
+/* =================================
+   9. RESPONSIVIDADE ADICIONAL PARA PROJETOS
+   ================================= */
+
+@media (max-width: 768px) {
+    .projetos-grid {
+        grid-template-columns: 1fr; /* Uma coluna em mobile */
+        gap: 2rem;
+    }
+
+    #projects {
+        padding: 4rem 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-conteudo h3 {
+        font-size: 2rem;
+    }
+
+    .card-conteudo .descricao {
+        font-size: 1.4rem;
+    }
+    .card-botoes {
+        flex-direction: column; /* Botões empilhados em telas muito pequenas */
+    }
+}
+
+footer {
+    background-color: var(--color-accent);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+    padding: 20px 40px;
+    text-align: center;
+    font-size: 1.4rem;
+    color: #cccccc;
+    margin-top: auto; /* Garante que o footer fique no final */
+}
