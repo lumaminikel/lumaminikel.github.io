@@ -264,12 +264,12 @@ header {
     right: -2.6rem; /* Ajuste para centralizar com a linha vertical */
     top: 1rem; 
     z-index: 1; 
-    box-shadow: 0 0 0 4px var(--background-color); /* Borda falsa para destacar na linha */
+    box-shadow: 0 0 0 0.4rem var(--background-color); /* Borda falsa para destacar na linha */
 }
 
 .conteudo-experiencia {
     flex-grow: 1; 
-    padding-left: 20px; 
+    padding-left: 2rem; 
 }
 
 .conteudo-experiencia h3 {
@@ -283,7 +283,7 @@ header {
     font-size: 1.5rem;
     font-weight: 600;
     color: var(--color-secondary); /* Destaque Laranja */
-    margin: 0 0 10px 0;
+    margin: 0 0 1rem 0;
 }
 
 .conteudo-experiencia .descricao {
@@ -382,7 +382,7 @@ header {
 
     /* Experiência: Ajuste de Largura */
     .linha-do-tempo-container {
-        padding: 0 20px;
+        padding: 0 2rem;
     }
 }
 
@@ -569,10 +569,10 @@ header {
 
 footer {
     background-color: var(--color-accent);
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
-    padding: 20px 40px;
+    box-shadow: 0 -0.2rem 0.4rem var(--color-secondary);
+    padding: 2rem 4rem;
     text-align: center;
     font-size: 1.4rem;
-    color: #cccccc;
+    color: #ffffff;
     margin-top: auto; /* Garante que o footer fique no final */
 }
