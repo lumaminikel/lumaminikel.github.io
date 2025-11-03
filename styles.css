@@ -492,9 +492,12 @@ section[id] {
   }
 
   /* Hero */
+  #hero {
+    padding: 0.6rem;
+  }
   #hero article .title {
-    font-size: 4.5rem; /* Aumentado de 4rem para 4.5rem no mobile */
-    line-height: 5rem;
+    font-size: 4rem; /* Aumentado de 4rem para 4.5rem no mobile */
+    line-height: 4rem;
   }
 
   /* Skills: 1 Coluna */
