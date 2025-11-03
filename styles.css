@@ -148,11 +148,6 @@ header nav ul {
     margin: 0; /* Remove margin padrão do navegador */
 }
 
-/* Estilos para os itens da lista (li) */
-header nav ul li {
-    /* Sem estilo de fonte/cor aqui, pois aplicamos no <a> */
-}
-
 /* 2. ESTILOS CRUCIAIS: Para a tag <a> dentro do <li> */
 header nav ul li a {
     color: inherit; /* Herda a cor do header (var(--color-primary)) */
