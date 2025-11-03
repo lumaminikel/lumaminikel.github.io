@@ -11,16 +11,12 @@
   /* Cores do Purplefolio (Dark Mode) */
   --color-primary: #a020f0; /* Roxo principal */
   --color-secondary: #ff9100; /* Laranja de destaque */
+  --color-terciary: #dcc6ff; /* Roxo claro */
   --color-accent: #ffffff; /* Cinza Escuro para Header/Footer */
   --background-color: #000000; /* Fundo Preto */
   --font-color: #f1f1f1; /* Texto Branco/Claro */
   --color-sutil-border: rgba(255, 255, 255, 0.1); /* Borda/linha sutil */
-  --color-card-background: rgba(
-    255,
-    255,
-    255,
-    0.03
-  ); /* Fundo de cartão sutil */
+  --color-card-background: rgba( 255, 255, 255, 0.03 ); /* Fundo de cartão sutil */
 
   font-size: 62.5%;
 }
@@ -34,6 +30,11 @@
   font-weight: 600;
 }
 
+.enfaseterciaria {
+  color: var(--color-terciary);
+  font-weight: 600;
+}
+
 .bricolage-grotesque {
   font-family: "Bricolage Grotesque", sans-serif;
   font-weight: 700;
@@ -43,7 +44,7 @@
 .reaway-regular {
   font-family: "Relaway", sans-serif;
   font-weight: 400;
-  font-style: normal ;
+  font-style: normal;
 }
 
 body {
@@ -110,7 +111,7 @@ a.primary {
 a.outline {
   background-color: transparent;
   border: 0.1rem solid var(--color-primary);
-  color: var(--color-primary);
+  color: var(--color-terciary);
 }
 
 a.primary:hover,
@@ -123,65 +124,64 @@ a.outline:hover {
    2. ESTILOS DO HEADER E NAVEGAÇÃO
    ================================= */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 4rem;
-    background-color: #ffffff; 
-    box-shadow: var(--color-primary);
-    color: var(--color-primary);
-    
-    
-    /* PROPRIEDADES PARA FIXAR O MENU */
-    position: sticky; /* Define que o elemento deve ser fixo no scroll */
-    top: 0;          /* Fixa ele a 0px do topo do viewport */
-    z-index: 1000;   /* Garante que o header fique ACIMA de outros elementos */
+  display: flex;
+  font-family: Bricolage Grotesque, sans-serif;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem;
+  background-color: #ffffff;
+  box-shadow: var(--color-primary);
+  color: var(--color-primary);
+
+  /* PROPRIEDADES PARA FIXAR O MENU */
+  position: sticky; /* Define que o elemento deve ser fixo no scroll */
+  top: 0; /* Fixa ele a 0px do topo do viewport */
+  z-index: 1000; /* Garante que o header fique ACIMA de outros elementos */
 }
 
 /* Estilo para o link que envolve o nome/logo (Luma Minikel) */
-header > a:first-child { 
-    text-decoration: none; 
-    color: inherit; 
-    font-size: 2.5rem;
-    font-weight: 700;
+header > a:first-child {
+  text-decoration: none;
+  color: inherit;
+  font-size: 2.5rem;
+  font-weight: 700;
 }
 
 /* Estilos para a navegação (nav) */
 header nav {
-    font-size: 2rem;
-    flex: 1;
+  font-size: 1.6rem;
+  flex: 1;
 }
 
 /* Estilos para a lista não ordenada (ul) */
 header nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    list-style: none; /* Garante que a lista não tenha marcadores */
-    padding: 0; /* Remove padding padrão do navegador */
-    margin: 0; /* Remove margin padrão do navegador */
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  list-style: none; /* Garante que a lista não tenha marcadores */
+  padding: 0; /* Remove padding padrão do navegador */
+  margin: 0; /* Remove margin padrão do navegador */
 }
 
 /* 2. ESTILOS CRUCIAIS: Para a tag <a> dentro do <li> */
 header nav ul li a {
-    color: inherit; /* Herda a cor do header (var(--color-primary)) */
-    text-decoration: none; /* Remove o sublinhado padrão do link */
-    font-weight: 500;
-    transition: color 0.3s ease;
-    cursor: pointer;
-    display: block; /* Torna o link um bloco para preencher o <li> */
+  color: inherit; /* Herda a cor do header (var(--color-primary)) */
+  text-decoration: none; /* Remove o sublinhado padrão do link */
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  display: block; /* Torna o link um bloco para preencher o <li> */
 }
 
 /* Efeito de HOVER (ao passar o mouse) - aplicado ao <a> */
 header nav ul li a:hover {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 /* Estilo para o link ATIVO, que prevalece sobre o hover */
 header nav ul li a.active {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
-
 
 /* ========================================================================= */
 /* 3. CORREÇÃO DO SALTO DA ÂNCORA (SCROLL OFFSET) */
@@ -189,10 +189,9 @@ header nav ul li a.active {
 
 /* Aplica uma margem no topo de todas as seções que são alvos de links âncora. */
 /* O valor (10rem) deve ser MAIOR que a altura total do seu header (Ex: 8rem) */
-section[id] { 
-    scroll-margin-top: 10rem; 
+section[id] {
+  scroll-margin-top: 10rem;
 }
-
 
 /* =================================
    3. SEÇÃO HERO
@@ -482,12 +481,11 @@ section[id] {
   .linha-do-tempo-container {
     padding: 0 20px;
   }
-   .data {
+  .data {
     position: static; /* Remove o posicionamento relativo */
     margin-left: 0; /* Remove a margem */
     margin-bottom: 1rem;
   }
-
 }
 
 /* Mobile (Max-width: 768px) */
@@ -596,7 +594,7 @@ section[id] {
 
 .projeto-card:hover {
   transform: translateY(-0.8rem);
-  box-shadow: 0 1.5rem 3rem rgba(160, 32, 240,.2); /* Sombra mais pronunciada no hover */
+  box-shadow: 0 1.5rem 3rem rgba(160, 32, 240, 0.2); /* Sombra mais pronunciada no hover */
 }
 
 .projeto-card img {
@@ -693,85 +691,85 @@ footer {
    ================================= */
 
 .menu-hamburger {
-    display: none; /* Escondido por padrão */
-    border: none;
-    background: none;
-    cursor: pointer;
-    padding: 1rem;
-    position: relative;
-    width: 30px;
-    height: 22px;
+  display: none; /* Escondido por padrão */
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 1rem;
+  position: relative;
+  width: 30px;
+  height: 22px;
 }
 
 .menu-hamburger::before,
 .menu-hamburger::after,
 .menu-hamburger span {
-    content: '';
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--color-primary);
-    transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: transform 0.3s ease, top 0.3s ease, opacity 0.3s ease;
 }
 
 .menu-hamburger::before {
-    top: 0;
+  top: 0;
 }
 
 .menu-hamburger span {
-    top: 10px;
+  top: 10px;
 }
 
 .menu-hamburger::after {
-    top: 20px;
+  top: 20px;
 }
 
 @media (max-width: 768px) {
-    .menu-hamburger {
-        display: block;
-        position: absolute;
-        right: 2rem;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 1001;
-    }
+  .menu-hamburger {
+    display: block;
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+  }
 
-    header nav ul {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 70%;
-        height: 100vh;
-        background-color: #111;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        padding-top: 10rem;
-        transition: right 0.4s ease-in-out;
-        gap: 2rem;
-    }
+  header nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: #111;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10rem;
+    transition: right 0.4s ease-in-out;
+    gap: 2rem;
+  }
 
-    header nav.nav-active ul {
-        right: 0;
-    }
+  header nav.nav-active ul {
+    right: 0;
+  }
 
-    header nav.nav-active .menu-hamburger::before {
-        top: 10px;
-        transform: rotate(45deg);
-    }
+  header nav.nav-active .menu-hamburger::before {
+    top: 10px;
+    transform: rotate(45deg);
+  }
 
-    header nav.nav-active .menu-hamburger::after {
-        top: 10px;
-        transform: rotate(-45deg);
-    }
+  header nav.nav-active .menu-hamburger::after {
+    top: 10px;
+    transform: rotate(-45deg);
+  }
 
-    header nav.nav-active .menu-hamburger span {
-        opacity: 0;
-    }
+  header nav.nav-active .menu-hamburger span {
+    opacity: 0;
+  }
 
-    header nav ul li a {
-        font-size: 2.2rem;
-        color: var(--font-color);
-    }
+  header nav ul li a {
+    font-size: 2.2rem;
+    color: var(--font-color);
+  }
 }
