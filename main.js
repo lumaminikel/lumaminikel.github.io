@@ -60,3 +60,21 @@ const navObserver = new IntersectionObserver(navObserverCallback, navObserverOpt
 navSections.forEach(section => {
     navObserver.observe(section);
 });
+
+// =========================================================================
+// 4. FUNCIONALIDADE DO MENU HAMBÚRGUER
+// =========================================================================
+
+const hamburger = document.querySelector('.menu-hamburger');
+const nav = document.querySelector('header nav');
+
+hamburger.addEventListener('click', () => {
+    nav.classList.toggle('nav-active');
+});
+
+// Fecha o menu ao clicar em um link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        nav.classList.remove('nav-active');
+    });
+});
