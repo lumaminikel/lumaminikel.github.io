@@ -16,12 +16,7 @@
   --background-color: #000000; /* Fundo Preto */
   --font-color: #f1f1f1; /* Texto Branco/Claro */
   --color-sutil-border: rgba(255, 255, 255, 0.1); /* Borda/linha sutil */
-  --color-card-background: rgba(
-    255,
-    255,
-    255,
-    0.03
-  ); /* Fundo de cartão sutil */
+  --color-card-background: rgba(255, 255, 255, 0.03); /* Fundo de cartão sutil */
 
   font-size: 62.5%;
 }
