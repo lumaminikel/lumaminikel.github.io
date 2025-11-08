@@ -1,5 +1,4 @@
-# Portfólio de Luma Minikel
-
+# Portfólio pessoal
 Este é o repositório do meu portfólio pessoal, uma vitrine dos meus projetos, habilidades e jornada profissional. O site foi desenvolvido para ser uma apresentação completa do meu trabalho, unindo design, comunicação e tecnologia.
 
 ## Visão Geral
