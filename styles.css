@@ -9,6 +9,7 @@
 
 :root {
   /* Cores do Purplefolio (Dark Mode) */
+  --color-menu-destaque: #f06000;
   --color-primary: #a020f0; /* Roxo principal */
   --color-secondary: #ff9100; /* Laranja de destaque */
   --color-terciary: #dcc6ff; /* Roxo claro */
@@ -16,9 +17,14 @@
   --background-color: #000000; /* Fundo Preto */
   --font-color: #f1f1f1; /* Texto Branco/Claro */
   --color-sutil-border: rgba(255, 255, 255, 0.1); /* Borda/linha sutil */
-  --color-card-background: rgba(255, 255, 255, 0.03); /* Fundo de cartão sutil */
+  --color-card-background: rgba(255, 255, 255, 0); /* Fundo de cartão sutil */
 
   font-size: 62.5%;
+}
+
+.enfasemenu {
+  color: var(--color-menu-destaque);
+  font-weight: 700;
 }
 
 .enfaseprimaria {
@@ -175,12 +181,12 @@ header nav ul li a {
 
 /* Efeito de HOVER (ao passar o mouse) - aplicado ao <a> */
 header nav ul li a:hover {
-  color: var(--color-secondary);
+  color: var(--color-menu-destaque);
 }
 
 /* Estilo para o link ATIVO, que prevalece sobre o hover */
 header nav ul li a.active {
-  color: var(--color-secondary);
+  color: var(--color-menu-destaque);
 }
 
 /* ========================================================================= */
