@@ -1,6 +1,8 @@
 # Portfólio pessoal
 Este é o repositório do meu portfólio pessoal, uma vitrine dos meus projetos, habilidades e jornada profissional. O site foi desenvolvido para ser uma apresentação completa do meu trabalho, unindo design, comunicação e tecnologia.
 
+Acesse em: https://lumaminikel.github.io/
+
 ## Visão Geral
 
 O site é uma página única (single-page) com as seguintes seções:
