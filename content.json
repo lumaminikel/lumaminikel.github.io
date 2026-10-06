@@ -123,34 +123,57 @@
     {
       "slug": "shop-car",
       "titulo": "Website Shop Car",
-      "tecnologias": ["WordPress", "Elementor", "SEO"],
+      "tecnologias": [
+        "WordPress",
+        "Elementor",
+        "SEO"
+      ],
       "descricao": "Criação de um website profissional responsivo utilizando WordPress, com otimização para motores de busca e um design personalizado.",
       "imagem": "assets/Shopcar Banner.webp",
       "imagemAlt": "Website Shop Car Automóveis",
       "botoes": [
-        { "texto": "Ver Site", "url": "https://shopcarautomoveis.com.br" }
+        {
+          "texto": "Ver Site",
+          "url": "https://shopcarautomoveis.com.br"
+        }
       ]
     },
     {
       "slug": "tepmed",
       "titulo": "Website TepMed",
-      "tecnologias": ["WordPress", "Elementor", "SEO", "UI/UX"],
+      "tecnologias": [
+        "WordPress",
+        "Elementor",
+        "SEO",
+        "UI/UX"
+      ],
       "descricao": "Desenvolvimento de interface para o site TepMed, focado em apresentar soluções financeiras e de gestão de forma clara e objetiva para profissionais da saúde.",
       "imagem": "assets/TepMed.png",
       "imagemAlt": "Layout do Website TepMed",
       "botoes": [
-        { "texto": "Ver no Behance", "url": "https://www.behance.net/gallery/210842467/DESENVOLVIMENTO-WEB-TEPMED" }
+        {
+          "texto": "Ver no Behance",
+          "url": "https://www.behance.net/gallery/210842467/DESENVOLVIMENTO-WEB-TEPMED"
+        }
       ]
     },
     {
       "slug": "sollare",
       "titulo": "Landing Page Sollare",
-      "tecnologias": ["WordPress", "Elementor", "SEO", "Conversão"],
-      "descricao": "Criação de site focado em captação de leads para a Sollare, destacando os benefícios da energia solar de maneira atrativa e direta.",
+      "tecnologias": [
+        "WordPress",
+        "Elementor",
+        "SEO",
+        "Conversão"
+      ],
+      "descricao": "Criação de site focado em captação de leads para a Sollare, destacando os benefícios da energia solar de maneira atrativa e direta. Além de criação de páginas adicionais institucionais.",
       "imagem": "assets/Sollare.png",
       "imagemAlt": "Layout da Landing Page Sollare",
       "botoes": [
-        { "texto": "Ver no Behance", "url": "https://www.behance.net/gallery/210842069/DESENVOLVIMENTO-WEB-CLIENTE-SOLLARE-ENERGIA-SOLAR" }
+        {
+          "texto": "Ver no Behance",
+          "url": "https://www.behance.net/gallery/210842069/DESENVOLVIMENTO-WEB-CLIENTE-SOLLARE-ENERGIA-SOLAR"
+        }
       ]
     }
   ],
