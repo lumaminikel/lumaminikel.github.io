@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Esta página só carrega o próprio admin.js e só conversa com a API do GitHub -->
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; connect-src https://api.github.com; base-uri 'none'; form-action 'none'">
+  <title>Admin · Luma Minikel</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    [hidden] { display: none !important; }
+
+    :root {
+      --roxo: #a020f0;
+      --laranja: #ff9100;
+      --claro: #dcc6ff;
+      --fundo: #0b0b0f;
+      --painel: #15151c;
+      --borda: rgba(255, 255, 255, 0.12);
+      --texto: #f1f1f1;
+      --suave: #aaaab5;
+      --erro: #ff6b6b;
+      --ok: #5fd58a;
+    }
+
+    body {
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .enfaseprimaria { color: var(--roxo); font-weight: 700; }
+    .enfasesecundaria { color: var(--laranja); font-weight: 700; }
+    .enfaseterciaria { color: var(--claro); font-weight: 600; }
+
+    /* ---------- botões ---------- */
+    .btn {
+      background: var(--roxo);
+      border: 1px solid var(--roxo);
+      border-radius: 8px;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+      padding: 9px 18px;
+    }
+    .btn:hover:not(:disabled) { background: var(--laranja); border-color: var(--laranja); }
+    .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+    .btn.sec { background: transparent; border-color: var(--borda); color: var(--claro); }
+    .btn.sec:hover:not(:disabled) { background: rgba(255, 255, 255, 0.06); border-color: var(--claro); }
+    .mini {
+      background: transparent;
+      border: 1px solid var(--borda);
+      border-radius: 6px;
+      color: var(--claro);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      padding: 2px 9px;
+    }
+    .mini:hover:not(:disabled) { border-color: var(--claro); }
+    .mini:disabled { opacity: 0.3; cursor: default; }
+    .mini.perigo { color: var(--erro); }
+    .mini.perigo:hover { border-color: var(--erro); }
+
+    /* ---------- login ---------- */
+    #tela-login {
+      margin: 0 auto;
+      max-width: 520px;
+      padding: 12vh 20px 40px;
+    }
+    #tela-login h1 { font-size: 26px; margin-bottom: 6px; }
+    #tela-login p { color: var(--suave); margin-bottom: 18px; }
+    #tela-login input[type="password"] { margin-bottom: 12px; }
+    #tela-login label.check { align-items: center; color: var(--suave); display: flex; gap: 8px; margin-bottom: 16px; }
+    #tela-login .aviso { background: var(--painel); border: 1px solid var(--borda); border-radius: 8px; color: var(--suave); font-size: 13px; margin-top: 22px; padding: 12px 14px; }
+    .erro { color: var(--erro); margin-bottom: 12px; min-height: 1.4em; }
+
+    /* ---------- editor ---------- */
+    .topo {
+      align-items: center;
+      background: var(--painel);
+      border-bottom: 1px solid var(--borda);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: space-between;
+      padding: 12px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .topo h1 { font-size: 18px; }
+    .topo-acoes { align-items: center; display: flex; flex-wrap: wrap; gap: 12px; }
+    .topo-acoes a { color: var(--claro); font-size: 14px; }
+    #estado { color: var(--suave); font-size: 13px; }
+    #estado.sujo { color: var(--laranja); }
+
+    #abas { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 auto; max-width: 900px; padding: 18px 20px 0; }
+    #abas button {
+      background: transparent;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      color: var(--suave);
+      cursor: pointer;
+      font: inherit;
+      padding: 7px 14px;
+    }
+    #abas button.ativa { background: var(--roxo); border-color: var(--roxo); color: #fff; }
+
+    #paineis { margin: 0 auto; max-width: 900px; padding: 18px 20px 120px; }
+    .painel > h2 { font-size: 20px; margin-bottom: 4px; }
+    .painel > .sub { color: var(--suave); margin-bottom: 18px; }
+
+    .campo { margin-bottom: 14px; }
+    .campo > label { color: var(--claro); display: block; font-size: 13px; font-weight: 600; margin-bottom: 5px; }
+    .campo small { color: var(--suave); display: block; font-size: 12px; margin-top: 4px; }
+    input[type="text"], input[type="password"], textarea {
+      background: #0f0f15;
+      border: 1px solid var(--borda);
+      border-radius: 8px;
+      color: var(--texto);
+      font: inherit;
+      padding: 9px 11px;
+      width: 100%;
+    }
+    textarea { resize: vertical; }
+    input:focus, textarea:focus { border-color: var(--roxo); outline: none; }
+
+    .barra { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 5px; }
+    .previa { background: rgba(255, 255, 255, 0.03); border-radius: 6px; color: #ccc; font-size: 13px; margin-top: 5px; padding: 7px 10px; white-space: pre-wrap; }
+    .previa:empty { display: none; }
+
+    .item { background: var(--painel); border: 1px solid var(--borda); border-radius: 10px; margin-bottom: 14px; padding: 14px 16px; }
+    .item .item { background: #0f0f15; }
+    .item-topo { align-items: center; display: flex; gap: 10px; justify-content: space-between; margin-bottom: 12px; }
+    .item-topo strong { color: var(--laranja); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .acoes { display: flex; flex-shrink: 0; gap: 5px; }
+    .grade { display: grid; gap: 0 14px; grid-template-columns: 1fr 1fr; }
+    @media (max-width: 640px) { .grade { grid-template-columns: 1fr; } }
+
+    .img-campo { align-items: flex-start; display: flex; flex-wrap: wrap; gap: 14px; }
+    .prev-img { background: #0f0f15; border: 1px solid var(--borda); border-radius: 8px; height: 110px; max-width: 220px; object-fit: cover; object-position: top; width: 160px; }
+    .img-campo .lado { flex: 1; min-width: 200px; }
+    .img-campo input[type="file"] { color: var(--suave); font-size: 13px; }
+
+    /* ---------- mensagens ---------- */
+    #mensagem {
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 10px;
+      bottom: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      left: 50%;
+      max-width: min(92vw, 560px);
+      padding: 12px 18px;
+      position: fixed;
+      transform: translateX(-50%);
+      z-index: 50;
+    }
+    #mensagem.ok { border-color: var(--ok); }
+    #mensagem.erro { border-color: var(--erro); color: var(--texto); margin: 0; min-height: 0; }
+    #mensagem a { color: var(--claro); }
+  </style>
+</head>
+
+<body>
+  <!-- Tela de entrada -->
+  <section id="tela-login" hidden>
+    <h1>Admin <span class="enfaseprimaria">·</span> Portfólio</h1>
+    <p>Cole o token do GitHub para editar o site. Ele fica só neste navegador e é enviado apenas ao GitHub.</p>
+    <div class="erro" id="erro-login" role="alert"></div>
+    <input type="password" id="campo-token" placeholder="github_pat_..." autocomplete="off" spellcheck="false">
+    <label class="check"><input type="checkbox" id="lembrar" checked> Lembrar neste navegador (desmarque em computador
+      compartilhado)</label>
+    <button class="btn" id="btn-entrar" type="button">Entrar</button>
+    <div class="aviso">
+      O token precisa ser do tipo <strong>fine-grained</strong>, só para o repositório
+      <strong>lumaminikel.github.io</strong>, com a permissão <strong>Contents: Read and write</strong>.
+    </div>
+  </section>
+
+  <!-- Editor -->
+  <div id="tela-editor" hidden>
+    <header class="topo">
+      <h1>Admin <span class="enfaseprimaria">·</span> Portfólio</h1>
+      <div class="topo-acoes">
+        <span id="estado">Sem alterações</span>
+        <a href="index.html" target="_blank" rel="noopener">Ver site</a>
+        <button class="btn sec" id="btn-sair" type="button">Sair</button>
+        <button class="btn" id="btn-salvar" type="button" disabled>Publicar alterações</button>
+      </div>
+    </header>
+    <nav id="abas" aria-label="Seções"></nav>
+    <main id="paineis"></main>
+  </div>
+
+  <div id="mensagem" role="status" aria-live="polite" hidden></div>
+
+  <script src="admin.js" defer></script>
+</body>
+
+</html>

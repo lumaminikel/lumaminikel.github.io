@@ -1,0 +1,158 @@
+{
+  "contato": {
+    "whatsapp": "5555981241369"
+  },
+  "hero": {
+    "saudacao": "Olá, eu sou Luma Minikel{p}.{/p}",
+    "titulo": "{p}Estrategista{/p} Criativa & Desenvolvedora {s}Frontend{/s}",
+    "texto": "Gaúcha, comunicadora e entusiasta da tecnologia. Conecto estratégia, criatividade e inovação para dar vida a novas ideias. {t}Vamos criar algo juntos?{/t}",
+    "foto": "assets/Foto_Luma.webp",
+    "fotoAlt": "Foto de perfil de Luma Minikel"
+  },
+  "sobre": {
+    "paragrafos": [
+      "Profissional apaixonada por **comunicação e tecnologia**, movida pela curiosidade e pela vontade constante de aprender. Encontrei na interseção entre criatividade e técnica o espaço perfeito para transformar ideias em soluções práticas e inspiradoras.",
+      "Tenho formação em **Publicidade e Propaganda** pela UFSM e em **Manutenção e Suporte em Informática** pelo Instituto Federal Farroupilha. Essa combinação me permite unir o olhar estratégico do marketing com a precisão e a lógica da área tecnológica.",
+      "Atuo há mais de cinco anos em **marketing e publicidade**, com experiência em criação de conteúdo, social media, edição de vídeo e planejamento estratégico. Também possuo vivência em **suporte técnico** e infraestrutura de TI, oferecendo auxílio direto a usuários e garantindo o funcionamento seguro e eficiente de sistemas e equipamentos.",
+      "Gosto de ambientes **colaborativos**, onde o aprendizado é constante e o trabalho em equipe é valorizado. Acredito que resultados sólidos nascem da troca de ideias, do respeito e da disposição em crescer junto com os outros.",
+      "Sou movida por desafios e pela vontade de construir algo significativo — seja otimizando processos, criando novas estratégias ou explorando formas de conectar pessoas e tecnologia de maneira autêntica.",
+      "Mais do que executar tarefas, gosto de **dar vida a conceitos**: traduzir o abstrato em algo real, funcional e inspirador. Cada projeto é uma nova oportunidade de unir técnica, criatividade e propósito em um mesmo fluxo."
+    ]
+  },
+  "experiencia": [
+    {
+      "periodo": "Abr 2026 — Presente",
+      "empresa": "Setrem",
+      "cargo": "Analista de Suporte I",
+      "descricao": [
+        "Atuação no suporte de primeiro nível (Help Desk), garantindo a disponibilidade e o funcionamento das ferramentas tecnológicas para alunos, professores e corpo administrativo.",
+        "Responsável por **atendimento técnico presencial e remoto**, configuração de infraestrutura e redes, e gestão de chamados via sistema de Service Desk com foco em agilidade e SLA."
+      ]
+    },
+    {
+      "periodo": "Fev 2026 — Presente",
+      "empresa": "Rádio Colonial 94,7 FM",
+      "cargo": "Secretária Administrativa",
+      "descricao": [
+        "Suporte estratégico às rotinas administrativas e atendimento ao público, aplicando minha base em **Publicidade e Propaganda** para otimizar a experiência do cliente/ouvinte.",
+        "Gestão de documentos, organização de agendas, interface com os departamentos comercial e de programação, além da operação de **sistemas e ferramentas digitais** no fluxo interno."
+      ]
+    },
+    {
+      "periodo": "2025 — Presente",
+      "empresa": "Estúdio Lunari",
+      "cargo": "Criação e Gestão de Marca",
+      "descricao": [
+        "Criação e gestão da marca **Estúdio Lunari**, desenvolvendo identidade visual, comunicação estratégica e conteúdo digital com estética contemporânea.",
+        "Responsável por projetos de **branding, social media e design**, unindo criatividade, sensibilidade estética e visão estratégica."
+      ]
+    },
+    {
+      "periodo": "2024 — 2025",
+      "empresa": "Migrate S.I.",
+      "cargo": "Assistente de Marketing",
+      "descricao": [
+        "Atuação na área de **marketing**, contribuindo para o desenvolvimento e execução de estratégias de comunicação institucional e de marca.",
+        "Responsável por auxiliar na criação e produção de conteúdo para **redes sociais, e-mails marketing, blogs e materiais impressos**, garantindo coerência visual e textual em todos os canais. Participação no **gerenciamento do site** e demais plataformas de comunicação da empresa, além de apoio na **organização de eventos, feiras e ações promocionais**."
+      ]
+    },
+    {
+      "periodo": "2023 — 2024",
+      "empresa": "Atacadão S.A.",
+      "cargo": "Auxiliar de Informática",
+      "descricao": [
+        "Atuação na área de **suporte técnico**, realizando manutenção de equipamentos, acompanhamento de servidores e atendimento a usuários internos.",
+        "Gestão de situações críticas, como quedas de energia e falhas sistêmicas, garantindo a integridade dos dados e a continuidade operacional."
+      ]
+    },
+    {
+      "periodo": "2020 — 2024",
+      "empresa": "Agências de Comunicação",
+      "cargo": "Estrategista Digital e Conteúdo",
+      "descricao": [
+        "Atuação por mais de cinco anos em **marketing e publicidade**, desenvolvendo estratégias digitais, campanhas, edição de vídeos e planejamento de conteúdo para diferentes segmentos.",
+        "Experiência na gestão de cronogramas, atendimento a clientes e análise de resultados, com foco na construção de marcas sólidas."
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "titulo": "Tecnologia",
+      "itens": [
+        "Suporte Técnico & Manutenção de Computadores",
+        "Infraestrutura de Rede & Servidores",
+        "Pacote Office & Ferramentas Google Workspace",
+        "Sistemas Operacionais Windows & Linux"
+      ]
+    },
+    {
+      "titulo": "Comunicação & Marketing",
+      "itens": [
+        "Planejamento Estratégico de Conteúdo",
+        "Gestão de Mídias Sociais",
+        "Edição de Vídeo & Motion Design",
+        "Identidade Visual & Branding",
+        "Copywriting & Storytelling",
+        "Diagramação"
+      ]
+    },
+    {
+      "titulo": "Ferramentas",
+      "itens": [
+        "Adobe Premiere Pro & After Effects",
+        "Photoshop & Illustrator",
+        "Canva Pro & Figma",
+        "WordPress & Elementor",
+        "HTML & CSS",
+        "JavaScript & React",
+        "MySQL"
+      ]
+    },
+    {
+      "titulo": "Soft Skills",
+      "itens": [
+        "Comunicativa & Colaborativa",
+        "Organização e Foco em Resultados",
+        "Empatia & Escuta Ativa",
+        "Adaptabilidade & Curiosidade",
+        "Criatividade & Resolução de Problemas"
+      ]
+    }
+  ],
+  "projetos": [
+    {
+      "slug": "shop-car",
+      "titulo": "Website Shop Car",
+      "tecnologias": ["WordPress", "Elementor", "SEO"],
+      "descricao": "Criação de um website profissional responsivo utilizando WordPress, com otimização para motores de busca e um design personalizado.",
+      "imagem": "assets/Shopcar Banner.webp",
+      "imagemAlt": "Website Shop Car Automóveis",
+      "botoes": [
+        { "texto": "Ver Site", "url": "https://shopcarautomoveis.com.br" }
+      ]
+    },
+    {
+      "slug": "tepmed",
+      "titulo": "Website TepMed",
+      "tecnologias": ["WordPress", "Elementor", "SEO", "UI/UX"],
+      "descricao": "Desenvolvimento de interface para o site TepMed, focado em apresentar soluções financeiras e de gestão de forma clara e objetiva para profissionais da saúde.",
+      "imagem": "assets/TepMed.png",
+      "imagemAlt": "Layout do Website TepMed",
+      "botoes": [
+        { "texto": "Ver no Behance", "url": "https://www.behance.net/gallery/210842467/DESENVOLVIMENTO-WEB-TEPMED" }
+      ]
+    },
+    {
+      "slug": "sollare",
+      "titulo": "Landing Page Sollare",
+      "tecnologias": ["WordPress", "Elementor", "SEO", "Conversão"],
+      "descricao": "Criação de site focado em captação de leads para a Sollare, destacando os benefícios da energia solar de maneira atrativa e direta.",
+      "imagem": "assets/Sollare.png",
+      "imagemAlt": "Layout da Landing Page Sollare",
+      "botoes": [
+        { "texto": "Ver no Behance", "url": "https://www.behance.net/gallery/210842069/DESENVOLVIMENTO-WEB-CLIENTE-SOLLARE-ENERGIA-SOLAR" }
+      ]
+    }
+  ],
+  "rodape": "© {ano} Luma Minikel. Todos os direitos reservados."
+}
