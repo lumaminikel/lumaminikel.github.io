@@ -58,10 +58,19 @@
     return document.getElementById(id);
   }
 
+  // O número do WhatsApp NÃO fica no HTML nem nos links da página: o href só
+  // recebe o número quando alguém interage (passa o mouse, toca, foca ou clica).
+  // Assim robôs que apenas leem a página não encontram o número.
   function renderContato(c) {
-    const href = "https://wa.me/" + String(c.whatsapp || "").replace(/\D/g, "");
+    const numero = String(c.whatsapp || "").replace(/\D/g, "");
+    const montar = (a) => {
+      if (numero) a.href = "https://wa.me/" + numero;
+    };
     document.querySelectorAll("[data-whatsapp]").forEach((a) => {
-      a.href = href;
+      a.href = "#";
+      ["pointerdown", "mouseenter", "focus", "touchstart", "click"].forEach((ev) =>
+        a.addEventListener(ev, () => montar(a), { passive: true })
+      );
     });
   }
 
