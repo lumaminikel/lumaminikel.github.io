@@ -136,7 +136,17 @@
           "texto": "Ver Site",
           "url": "https://shopcarautomoveis.com.br"
         }
-      ]
+      ],
+      "pagina": {
+        "subtitulo": "Desenvolvimento de site para a revenda de carros **ShopCar Automóveis**",
+        "detalhes": [
+          {
+            "rotulo": "Ano",
+            "valor": "2025"
+          }
+        ],
+        "blocos": []
+      }
     },
     {
       "slug": "tepmed",
@@ -155,7 +165,12 @@
           "texto": "Ver no Behance",
           "url": "https://www.behance.net/gallery/210842467/DESENVOLVIMENTO-WEB-TEPMED"
         }
-      ]
+      ],
+      "pagina": {
+        "subtitulo": "",
+        "detalhes": [],
+        "blocos": []
+      }
     },
     {
       "slug": "sollare",
@@ -174,7 +189,12 @@
           "texto": "Ver no Behance",
           "url": "https://www.behance.net/gallery/210842069/DESENVOLVIMENTO-WEB-CLIENTE-SOLLARE-ENERGIA-SOLAR"
         }
-      ]
+      ],
+      "pagina": {
+        "subtitulo": "",
+        "detalhes": [],
+        "blocos": []
+      }
     }
   ],
   "rodape": "© {ano} Luma Minikel. Todos os direitos reservados."
