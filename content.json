@@ -129,7 +129,7 @@
         "SEO"
       ],
       "descricao": "Criação de um website profissional responsivo utilizando WordPress, com otimização para motores de busca e um design personalizado.",
-      "imagem": "assets/Shopcar Banner.webp",
+      "imagem": "assets/website-shop-car-1791375373051.webp",
       "imagemAlt": "Website Shop Car Automóveis",
       "botoes": [
         {
@@ -147,15 +147,15 @@
         ],
         "blocos": [
           {
+            "tipo": "texto",
+            "conteudo": "Criação de website com {t}foco nos veículos para venda{/t}, fotos e exibição de vídeos publicados na página do Youtube.\nPágina de edição e cadastramento de veículos."
+          },
+          {
             "tipo": "imagem",
-            "src": "assets/website-shop-car-bloco-1791375064106.webp",
+            "src": "assets/website-shop-car-bloco-1791375417314.webp",
             "alt": "",
             "legenda": "",
             "modo": "inteira"
-          },
-          {
-            "tipo": "texto",
-            "conteudo": "Criação de website com {t}foco nos veículos para venda{/t}, fotos e exibição de vídeos publicados na página do Youtube."
           }
         ]
       }
