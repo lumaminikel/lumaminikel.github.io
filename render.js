@@ -133,6 +133,11 @@
             <p class="tecnologias">${esc((p.tecnologias || []).join(" | "))}</p>
             <p class="descricao">${esc(p.descricao)}</p>
             <div class="card-botoes">
+              ${
+                p.slug && p.pagina && Array.isArray(p.pagina.blocos) && p.pagina.blocos.length
+                  ? `<a href="projeto.html?p=${encodeURIComponent(p.slug)}" class="outline">Ver detalhes</a>`
+                  : ""
+              }
               ${(p.botoes || [])
                 .map(
                   (b) =>

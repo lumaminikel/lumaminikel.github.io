@@ -410,6 +410,109 @@
     );
   }
 
+  // Lista suspensa ligada a obj[chave]
+  function campoSelect(rotulo, obj, chave, opcoes, ajuda) {
+    const sel = h("select", {}, opcoes.map(([v, n]) => h("option", { value: v }, n)));
+    sel.value = obj[chave] || opcoes[0][0];
+    sel.addEventListener("change", () => {
+      obj[chave] = sel.value;
+      marcarAlterado();
+    });
+    return h("div", { class: "campo" }, h("label", {}, rotulo), sel, ajuda ? h("small", {}, ajuda) : null);
+  }
+
+  // ---------- Blocos da página do projeto ----------
+  const TIPOS_BLOCO = [
+    ["titulo", "Título de seção"],
+    ["texto", "Texto"],
+    ["imagem", "Imagem"],
+    ["galeria", "Galeria de imagens"],
+    ["destaque", "Frase em destaque"],
+  ];
+
+  function tituloBloco(b) {
+    const nomes = Object.fromEntries(TIPOS_BLOCO);
+    const base = nomes[b.tipo] || "Bloco";
+    const t = String(b.texto || b.conteudo || b.legenda || "").replace(/\s+/g, " ").trim();
+    return t ? base + " — " + (t.length > 40 ? t.slice(0, 40) + "…" : t) : base;
+  }
+
+  function mudarTipoBloco(b, tipo) {
+    const txt = b.texto != null ? b.texto : b.conteudo != null ? b.conteudo : "";
+    Object.keys(b).forEach((k) => delete b[k]);
+    b.tipo = tipo;
+    if (tipo === "titulo") b.texto = txt;
+    else if (tipo === "texto" || tipo === "destaque") b.conteudo = txt;
+    else if (tipo === "imagem") Object.assign(b, { src: "", alt: "", legenda: "", modo: "inteira" });
+    else if (tipo === "galeria") b.imagens = [];
+  }
+
+  function editorBloco(b, p) {
+    const caixa = h("div", {});
+    const prefixo = () => (slugify(p.titulo) || "projeto") + "-bloco";
+
+    function desenhar() {
+      caixa.replaceChildren();
+      const sel = h("select", {}, TIPOS_BLOCO.map(([v, n]) => h("option", { value: v }, n)));
+      sel.value = b.tipo;
+      sel.addEventListener("change", () => {
+        mudarTipoBloco(b, sel.value);
+        marcarAlterado();
+        desenhar();
+      });
+      caixa.append(h("div", { class: "campo" }, h("label", {}, "Tipo de bloco"), sel));
+
+      if (b.tipo === "titulo") {
+        caixa.append(campo("Título da seção", b, "texto", { placeholder: "Ex.: O desafio" }));
+      } else if (b.tipo === "texto") {
+        caixa.append(
+          campo("Texto", b, "conteudo", {
+            multi: true,
+            linhas: 6,
+            rico: true,
+            padrao: CLASSES.s,
+            ajuda: "Linha em branco separa parágrafos. Linhas começando com “- ” viram lista.",
+          })
+        );
+      } else if (b.tipo === "destaque") {
+        caixa.append(campo("Frase em destaque", b, "conteudo", { multi: true, linhas: 3, rico: true, padrao: CLASSES.s }));
+      } else if (b.tipo === "imagem") {
+        caixa.append(
+          campoImagem("Imagem", b, "src", { larguraMax: 1600, prefixo }),
+          campo("Descrição da imagem (acessibilidade)", b, "alt"),
+          campo("Legenda (opcional)", b, "legenda"),
+          campoSelect(
+            "Exibição",
+            b,
+            "modo",
+            [
+              ["inteira", "Imagem inteira"],
+              ["recortada", "Recortada no topo (clique abre inteira) — boa para prints longos"],
+            ]
+          )
+        );
+      } else if (b.tipo === "galeria") {
+        caixa.append(
+          lista(
+            b.imagens,
+            (i) =>
+              h(
+                "div",
+                {},
+                campoImagem("Imagem", i, "src", { larguraMax: 1600, prefixo }),
+                h("div", { class: "grade" }, campo("Descrição (acessibilidade)", i, "alt"), campo("Legenda (opcional)", i, "legenda"))
+              ),
+            () => ({ src: "", alt: "", legenda: "" }),
+            "Adicionar imagem",
+            (_, n) => "Imagem " + (n + 1)
+          )
+        );
+      }
+    }
+    desenhar();
+    return caixa;
+  }
+
   // ---------- Painéis ----------
   function painel(id, titulo, sub, ...conteudo) {
     return h("section", { class: "painel", id: "painel-" + id, hidden: true }, h("h2", {}, titulo), h("p", { class: "sub" }, sub), conteudo);
@@ -520,6 +623,28 @@
               () => ({ texto: "Ver projeto", url: "https://" }),
               "Adicionar botão",
               (b) => b.texto || "Botão"
+            ),
+            h("h3", { class: "sub-titulo" }, "Página do projeto"),
+            h("p", { class: "dica" }, "Conte como o projeto foi feito. O botão “Ver detalhes” aparece no card assim que houver pelo menos um bloco."),
+            campo("Subtítulo da página", p.pagina, "subtitulo", { multi: true, linhas: 2, rico: true, padrao: CLASSES.s, ajuda: "Frase logo abaixo do título. Se ficar vazio, usa a descrição do card." }),
+            h("label", { class: "campo", style: "color:#dcc6ff;font-size:13px;font-weight:600;display:block;margin-bottom:6px" }, "Informações rápidas (ano, função, cliente…)"),
+            lista(
+              p.pagina.detalhes,
+              (d) => h("div", { class: "grade" }, campo("Rótulo", d, "rotulo", { placeholder: "Ano" }), campo("Valor", d, "valor", { placeholder: "2025" })),
+              () => ({ rotulo: "", valor: "" }),
+              "Adicionar informação",
+              (d) => d.rotulo || "Informação"
+            ),
+            h("label", { class: "campo", style: "color:#dcc6ff;font-size:13px;font-weight:600;display:block;margin-bottom:6px" }, "Conteúdo da página (blocos, na ordem em que aparecem)"),
+            lista(p.pagina.blocos, (b) => editorBloco(b, p), () => ({ tipo: "texto", conteudo: "" }), "Adicionar bloco", tituloBloco),
+            h(
+              "button",
+              {
+                type: "button",
+                class: "btn sec",
+                onclick: () => window.open("projeto.html?p=" + encodeURIComponent(p.slug || slugify(p.titulo)), "_blank", "noopener"),
+              },
+              "Abrir página do projeto (depois de publicar)"
             )
           ),
         () => ({ slug: "", titulo: "", tecnologias: [], descricao: "", imagem: "", imagemAlt: "", botoes: [{ texto: "Ver projeto", url: "https://" }] }),
@@ -571,6 +696,13 @@
     c.projetos.forEach((p) => {
       p.tecnologias = p.tecnologias || [];
       p.botoes = p.botoes || [];
+      p.pagina = p.pagina || {};
+      p.pagina.subtitulo = p.pagina.subtitulo || "";
+      p.pagina.detalhes = p.pagina.detalhes || [];
+      p.pagina.blocos = p.pagina.blocos || [];
+      p.pagina.blocos.forEach((b) => {
+        if (b.tipo === "galeria") b.imagens = b.imagens || [];
+      });
     });
     c.rodape = c.rodape || "";
     return c;
@@ -579,7 +711,13 @@
   function imagensReferenciadas(c) {
     const s = new Set();
     if (c.hero && c.hero.foto) s.add(c.hero.foto);
-    (c.projetos || []).forEach((p) => p.imagem && s.add(p.imagem));
+    (c.projetos || []).forEach((p) => {
+      if (p.imagem) s.add(p.imagem);
+      ((p.pagina && p.pagina.blocos) || []).forEach((b) => {
+        if (b.tipo === "imagem" && b.src) s.add(b.src);
+        if (b.tipo === "galeria") (b.imagens || []).forEach((i) => i.src && s.add(i.src));
+      });
+    });
     return s;
   }
 
@@ -626,6 +764,15 @@
         } catch (e) {
           erros.push(`${nome}: o link do botão "${b.texto || ""}" não é válido (precisa começar com https://).`);
         }
+      });
+      p.pagina.blocos.forEach((b, j) => {
+        const onde = `${nome}, bloco ${j + 1}`;
+        if (b.tipo === "imagem" && !b.src) erros.push(`${onde}: falta a imagem.`);
+        else if (b.tipo === "galeria") {
+          if (!b.imagens.length) erros.push(`${onde}: a galeria está vazia.`);
+          else if (b.imagens.some((i) => !i.src)) erros.push(`${onde}: há imagem sem arquivo na galeria.`);
+        } else if (b.tipo === "titulo" && !String(b.texto || "").trim()) erros.push(`${onde}: o título está vazio.`);
+        else if ((b.tipo === "texto" || b.tipo === "destaque") && !String(b.conteudo || "").trim()) erros.push(`${onde}: o texto está vazio.`);
       });
     });
     if (erros.length) {

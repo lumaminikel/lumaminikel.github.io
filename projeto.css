@@ -1,0 +1,266 @@
+/* =========================================================================
+   PROJETO.CSS — Estilos da página de projeto (projeto.html)
+   Usa as variáveis e o cabeçalho/rodapé do styles.css
+   ========================================================================= */
+
+.pj-main {
+  width: 100%;
+}
+
+.pj {
+  max-width: 96rem;
+  margin: 0 auto;
+  padding: 4rem 3rem 8rem;
+}
+
+.pj-voltar {
+  display: inline-block;
+  margin-bottom: 3rem;
+  color: var(--color-terciary);
+  font-size: 1.5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.pj-voltar:hover {
+  color: var(--color-secondary);
+}
+
+/* ---------- Cabeçalho do projeto ---------- */
+.pj-tec {
+  margin-bottom: 1rem;
+  color: var(--color-secondary);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.pj-cabecalho h1 {
+  margin-bottom: 1.5rem;
+  font-size: 5rem;
+  line-height: 1.15;
+}
+
+.pj-subtitulo {
+  max-width: 72rem;
+  margin-bottom: 3rem;
+  color: #cccccc;
+  font-size: 1.9rem;
+  line-height: 1.6;
+}
+
+.pj-detalhes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-top: 0.1rem solid var(--color-sutil-border);
+  border-bottom: 0.1rem solid var(--color-sutil-border);
+}
+
+.pj-detalhes dt {
+  margin-bottom: 0.4rem;
+  color: var(--color-terciary);
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pj-detalhes dd {
+  font-size: 1.6rem;
+}
+
+.pj-botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.pj-capa {
+  margin-bottom: 5rem;
+  overflow: hidden;
+  border: 0.1rem solid var(--color-sutil-border);
+  border-radius: 1rem;
+}
+
+.pj-capa img {
+  display: block;
+  width: 100%;
+  max-height: 50rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------- Blocos de conteúdo ---------- */
+.pj-corpo > * + * {
+  margin-top: 3rem;
+}
+
+.pj-main .pj-h2 {
+  margin: 6rem 0 0;
+  font-size: 3rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.pj-texto p,
+.pj-texto ul {
+  max-width: 76rem;
+  color: #d6d6d6;
+  font-size: 1.7rem;
+  line-height: 1.8;
+}
+
+.pj-texto p + p,
+.pj-texto p + ul,
+.pj-texto ul + p {
+  margin-top: 1.8rem;
+}
+
+.pj-texto ul {
+  padding-left: 2.4rem;
+}
+
+.pj-texto li + li {
+  margin-top: 0.6rem;
+}
+
+.pj-destaque {
+  max-width: 76rem;
+  padding: 1rem 0 1rem 2.4rem;
+  border-left: 0.4rem solid var(--color-secondary);
+  color: var(--font-color);
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 2.4rem;
+  line-height: 1.4;
+}
+
+.pj-figura {
+  margin: 0;
+}
+
+.pj-zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.pj-figura img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 0.1rem solid var(--color-sutil-border);
+  border-radius: 1rem;
+}
+
+/* Imagem longa (print de página inteira): mostra só o topo; clique abre inteira */
+.pj-recortada img {
+  max-height: 60rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+.pj-figura figcaption {
+  margin-top: 1rem;
+  color: #9a9a9a;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.pj-galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
+  gap: 2rem;
+}
+
+.pj-galeria img {
+  height: 22rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* ---------- Navegação entre projetos ---------- */
+.pj-navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: 8rem;
+  padding-top: 3rem;
+  border-top: 0.1rem solid var(--color-sutil-border);
+}
+
+.pj-navegacao a:only-child {
+  margin-left: auto;
+}
+
+/* ---------- Imagem ampliada ---------- */
+.pj-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.92);
+  cursor: zoom-out;
+}
+
+.pj-lightbox img {
+  width: 100%;
+  max-width: 120rem;
+  height: auto;
+  border-radius: 0.8rem;
+}
+
+/* ---------- Mensagens ---------- */
+.pj-vazio {
+  padding: 10rem 3rem;
+  text-align: center;
+}
+
+.pj-vazio p {
+  margin-bottom: 3rem;
+  font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  .pj {
+    padding: 3rem 2rem 6rem;
+  }
+
+  .pj-cabecalho h1 {
+    font-size: 3.4rem;
+  }
+
+  .pj-subtitulo {
+    font-size: 1.6rem;
+  }
+
+  .pj-main .pj-h2 {
+    font-size: 2.4rem;
+  }
+
+  .pj-texto p,
+  .pj-texto ul {
+    font-size: 1.6rem;
+  }
+
+  .pj-destaque {
+    font-size: 2rem;
+  }
+
+  .pj-recortada img {
+    max-height: 40rem;
+  }
+
+  .pj-lightbox {
+    padding: 1rem;
+  }
+}
