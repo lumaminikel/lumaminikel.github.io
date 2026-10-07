@@ -145,7 +145,19 @@
             "valor": "2025"
           }
         ],
-        "blocos": []
+        "blocos": [
+          {
+            "tipo": "imagem",
+            "src": "assets/website-shop-car-bloco-1791375064106.webp",
+            "alt": "",
+            "legenda": "",
+            "modo": "inteira"
+          },
+          {
+            "tipo": "texto",
+            "conteudo": "Criação de website com {t}foco nos veículos para venda{/t}, fotos e exibição de vídeos publicados na página do Youtube."
+          }
+        ]
       }
     },
     {
